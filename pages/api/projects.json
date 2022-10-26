@@ -1,0 +1,89 @@
+[
+  {
+    "name": "palestine online",
+    "link": "https://palestine-online.vercel.app/",
+    "description": "social media",
+    "type": "media",
+    "languages": [
+      "react",
+      "next",
+      "typescript",
+      "tailwind",
+      "sanity",
+      "zustand"
+    ]
+  },
+  {
+    "name": "consume",
+    "link": "https://ecommerce-prot.vercel.app/", 
+    "description": "e-commerce",
+    "type": "ecommerce",
+    "anguages": ["react", "next", "typescript", "tailwind", "sanity", "zustand"]
+  },
+  {
+    "name": "fighting game",
+    "link": "https://fighting-game-liart.vercel.app/",
+    "description": "javascript fighting game",
+    "type": "gaming"
+  },
+  {
+    "name": "portfoleo template",
+    "link": "https://pottyfolly.vercel.app/", 
+    "description": "portfoleo template",
+    "type": "websites"
+  },
+  {
+    "name": "ingrediento",
+    "link": "https://recipes-app-three-alpha.vercel.app/",
+    "description": "some basic foods nutrients",
+    "type": "informative"
+  },
+  {
+    "name": "spotify clone",
+    "link": "https://spotify-ten-swart.vercel.app/",
+    "description": "basic spotfy clone",
+    "type": "media"
+  },
+  {
+    "name": "Human Kingdom",
+    "link": "https://human-kingdom.vercel.app/", 
+    "description": "some quotes, a small weather app, and general information about countries of the world",
+    "type": "informative"
+  },
+  {
+    "name": "image gallery",
+    "link": "https://gallery-eta-three.vercel.app/",
+    "description": "simple image gallery",
+    "type": "media"
+  },
+  {
+    "name": "netflix clone",
+    "link": "https://tmdb2-netflix-clone.vercel.app/",
+    "description": "a netflix clone with a twist of humor",
+    "type": "media"
+  },
+  {
+    "name": "Hek",
+    "link": "https://hek.vercel.app/", 
+    "description": "A design company website",
+    "type": "informative"
+  },
+  {
+    "name": "periodic",
+    "link": "https://periodicelements.vercel.app/",
+    "description": "periodic element stable with basic summary",
+    "type": "informative"
+  },
+  {
+    "name": "killer designs",
+    "link": "https://onlinedummyshop.vercel.app/",
+    "description": "e-commerce",
+    "type": "ecommerce"
+  },
+  {
+    "name": "killer designs II",
+    "link": "https://killer-design-prototype-with-placeholders.vercel.app/",
+    "description": "ecommerce",
+    "type": "ecommerce"
+  }
+]

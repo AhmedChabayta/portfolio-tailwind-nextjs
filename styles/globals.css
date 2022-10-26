@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html body {
+    @apply bg-transparent -z-[0];
+  }
+}
+
+@layer components {
+  .layout {
+    @apply min-h-screen
+    w-screen
+    relative
+    bg-gray-900
+    before:content-['']
+    before:absolute
+    before:top-0
+    before:bottom-0
+    before:left-0
+    before:right-0
+    before:bg-gradient-to-bl
+    before:from-sky-800
+    before:via-sky-600
+    before:to-sky-400
+    before:-z-[0];
+  }
+}
