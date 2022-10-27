@@ -15,15 +15,25 @@
     relative
     bg-gray-900
     before:content-['']
-    before:absolute
+    before:fixed
     before:top-0
     before:bottom-0
     before:left-0
     before:right-0
+    before:h-screen
+    before:w-screen
     before:bg-gradient-to-bl
-    before:from-sky-800
-    before:via-sky-600
-    before:to-sky-400
-    before:-z-[0];
+    before:from-sky-800/60
+    before:via-sky-600/60
+    before:to-sky-400/60
+    before:backdrop-blur-xl
+    before:z-[-50]
+    z-[10];
   }
+}
+
+.layout {
+  background-image: url("/sky.svg");
+  background-position: fixed;
+  background-size: cover;
 }

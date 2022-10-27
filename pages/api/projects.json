@@ -15,75 +15,170 @@
   },
   {
     "name": "consume",
-    "link": "https://ecommerce-prot.vercel.app/", 
+    "link": "https://ecommerce-prot.vercel.app/",
     "description": "e-commerce",
     "type": "ecommerce",
-    "anguages": ["react", "next", "typescript", "tailwind", "sanity", "zustand"]
+    "languages": [
+      "react",
+      "next",
+      "typescript",
+      "tailwind",
+      "sanity",
+      "zustand"
+    ]
   },
   {
     "name": "fighting game",
     "link": "https://fighting-game-liart.vercel.app/",
     "description": "javascript fighting game",
-    "type": "gaming"
+    "type": "gaming",
+    "languages": [
+      "react",
+      "next",
+      "typescript",
+      "tailwind",
+      "sanity",
+      "zustand"
+    ]
   },
   {
     "name": "portfoleo template",
-    "link": "https://pottyfolly.vercel.app/", 
+    "link": "https://pottyfolly.vercel.app/",
     "description": "portfoleo template",
-    "type": "websites"
+    "type": "websites",
+    "languages": [
+      "react",
+      "next",
+      "typescript",
+      "tailwind",
+      "sanity",
+      "zustand"
+    ]
   },
   {
     "name": "ingrediento",
     "link": "https://recipes-app-three-alpha.vercel.app/",
     "description": "some basic foods nutrients",
-    "type": "informative"
+    "type": "informative",
+    "languages": [
+      "react",
+      "next",
+      "typescript",
+      "tailwind",
+      "sanity",
+      "zustand"
+    ]
   },
   {
     "name": "spotify clone",
     "link": "https://spotify-ten-swart.vercel.app/",
     "description": "basic spotfy clone",
-    "type": "media"
+    "type": "media",
+    "languages": [
+      "react",
+      "next",
+      "typescript",
+      "tailwind",
+      "sanity",
+      "zustand"
+    ]
   },
   {
     "name": "Human Kingdom",
-    "link": "https://human-kingdom.vercel.app/", 
+    "link": "https://human-kingdom.vercel.app/",
     "description": "some quotes, a small weather app, and general information about countries of the world",
-    "type": "informative"
+    "type": "informative",
+    "languages": [
+      "react",
+      "next",
+      "typescript",
+      "tailwind",
+      "sanity",
+      "zustand"
+    ]
   },
   {
     "name": "image gallery",
     "link": "https://gallery-eta-three.vercel.app/",
     "description": "simple image gallery",
-    "type": "media"
+    "type": "media",
+    "languages": [
+      "react",
+      "next",
+      "typescript",
+      "tailwind",
+      "sanity",
+      "zustand"
+    ]
   },
   {
     "name": "netflix clone",
     "link": "https://tmdb2-netflix-clone.vercel.app/",
     "description": "a netflix clone with a twist of humor",
-    "type": "media"
+    "type": "media",
+    "languages": [
+      "react",
+      "next",
+      "typescript",
+      "tailwind",
+      "sanity",
+      "zustand"
+    ]
   },
   {
     "name": "Hek",
-    "link": "https://hek.vercel.app/", 
+    "link": "https://hek.vercel.app/",
     "description": "A design company website",
-    "type": "informative"
+    "type": "websites",
+    "languages": [
+      "react",
+      "next",
+      "typescript",
+      "tailwind",
+      "sanity",
+      "zustand"
+    ]
   },
   {
     "name": "periodic",
     "link": "https://periodicelements.vercel.app/",
     "description": "periodic element stable with basic summary",
-    "type": "informative"
+    "type": "informative",
+    "languages": [
+      "react",
+      "next",
+      "typescript",
+      "tailwind",
+      "sanity",
+      "zustand"
+    ]
   },
   {
     "name": "killer designs",
     "link": "https://onlinedummyshop.vercel.app/",
     "description": "e-commerce",
-    "type": "ecommerce"
+    "type": "ecommerce",
+    "languages": [
+      "react",
+      "next",
+      "typescript",
+      "tailwind",
+      "sanity",
+      "zustand"
+    ]
   },
   {
     "name": "killer designs II",
     "link": "https://killer-design-prototype-with-placeholders.vercel.app/",
     "description": "ecommerce",
-    "type": "ecommerce"
+    "type": "ecommerce",
+    "languages": [
+      "react",
+      "next",
+      "typescript",
+      "tailwind",
+      "sanity",
+      "zustand"
+    ]
   }
 ]

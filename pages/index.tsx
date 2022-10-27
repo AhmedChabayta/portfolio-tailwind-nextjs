@@ -3,69 +3,111 @@ import Layout from "../components/Layout";
 import { useState } from "react";
 import Drawer from "../components/Drawer";
 import data from "../pages/api/projects.json";
-
-export interface ProjectsTypes {
-  projects: {
-    name: string;
-    link: string;
-    description: string;
-    type: string;
-    languages?: string[];
-  }[];
+import { btnFilters } from "./api/buttons";
+import Link from "next/link";
+import { PersonalInfo } from "./api/PersonalData";
+export interface ProjectType {
+  name: string;
+  link: string;
+  description: string;
+  type: string;
+  languages: string[];
 }
 
 const Home = () => {
   const [reveal, setReveal] = useState<boolean>(true);
+  const [filter, setFilter] = useState("media");
+  const projects: ProjectType[] = data.filter((project: ProjectType) => {
+    if (filter === "") {
+      return project;
+    } else if (project.type.includes(filter)) {
+      return project;
+    }
+  });
+  const [x, setX] = useState<number>(0);
 
-  const projects = data;
-
+  const handleFilter = (filter: string) => {
+    setFilter(filter);
+    setX(0);
+  };
+  console.log(projects);
   return (
     <Layout title="Home" description="Web Portfolio">
       <div className="flex flex-col">
         <motion.div
           layout
-          className={`flex ${
-            reveal ? "flex-col" : "flex-row"
-          } items-center justify-between w-screen mt-44 lg:mt-10`}
+          className={`flex flex-col items-center justify-between w-screen mt-44 lg:mt-10`}
         >
           <Drawer
-            title="React Developer"
-            text="Ahmed Chabayta"
-            left
+            title={PersonalInfo[0].title}
+            text={PersonalInfo[0].name}
+            Icon={PersonalInfo[0].email}
             reveal={reveal}
             setReveal={() => setReveal((o) => !o)}
           />
-
           <Drawer
-            title="GitHub"
-            text="https://github.com/AhmedChabayta"
-            left={false}
+            title={PersonalInfo[0].github}
+            text={PersonalInfo[0].email}
             reveal={reveal}
             setReveal={() => setReveal((o) => !o)}
           />
+          {PersonalInfo[0].skills.map((skill: any) => (
+            <Drawer
+              key={skill.name}
+              title={skill.name}
+              Icon={skill.icon}
+              reveal={reveal}
+              setReveal={() => setReveal((o) => !o)}
+            />
+          ))}
         </motion.div>
         <div className="flex flex-col px-2 mt-20 items-start justify-center z-[0]">
           <h1 className="font-black bg-lime-500 border-2 border-black px-2 my-2">
-            Projects
+            Projects ({projects.length})
           </h1>
-          <div className="flex flex-col space-y-10 my-20 lg:space-y-0 lg:gap-8 lg:flex-row lg:flex-wrap items-center justify-center mx-auto bg-lime-500 border-2 border-black p-10">
-            {projects.map((project) => (
-              <div key={project.name}>
-                <a
-                  target="_void"
-                  href={project.link}
-                  className="capitalize font-black"
-                >
-                  {project.name}
-                </a>
-                <p className="capitalize font-black">{project.type}</p>
-                <p className="capitalize font-black ">{project.languages}</p>
-                <iframe
-                  className="w-[350px] h-[500px] shadow-[0px_0px_20px_rgba(0_0_0)]"
-                  src={project.link}
-                ></iframe>
-              </div>
+          <div className="flex">
+            {btnFilters.map((btn) => (
+              <button
+                key={btn.name}
+                onClick={() => handleFilter(btn.name)}
+                className="p-2 bg-lime-500 border-2 border-black mx-2 font-black capitalize"
+              >
+                {btn.name}
+              </button>
             ))}
+          </div>
+          <div className="relative flex flex-col space-y-10 my-20 lg:space-y-0 lg:gap-8 lg:flex-row lg:flex-wrap items-center justify-center mx-auto bg-lime-500 border-2 border-black p-10">
+            <div key={projects[x].name || projects[0].name}>
+              <Link
+                target="_void"
+                href={projects[x].link || projects[0].link}
+                className="capitalize font-black text-2xl"
+              >
+                {projects[x].name || projects[0].name}
+              </Link>
+              <p className="capitalize font-black">
+                {projects[x].type || projects[0].type}
+              </p>
+              <p className="capitalize font-black hidden">
+                {projects[x].languages || projects[0].languages}
+              </p>
+
+              <iframe
+                className="h-[90vh] w-full sm:w-[80vw] md:w-[70vw] lg:w-[80vw] lg:h-[60vh] border-2 border-black p-4 bg-sky-600 lg:m-4"
+                src={projects[x].link || projects[0].link}
+              ></iframe>
+              <div className="mx-auto space-x-4 w-fit my-10">
+                <button
+                  disabled={x === projects.length - 1}
+                  onClick={() => setX((x) => x + 1)}
+                >
+                  +
+                </button>
+                <button disabled={x === 0} onClick={() => setX((x) => x - 1)}>
+                  -
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@ import {
   UserGroupIcon,
 } from "@heroicons/react/24/solid";
 import Link from "next/link";
-import SpiralIcon from "../public/SpiralIcon";
+import SpiralIcon from "./SpiralIcon";
 
 const NavButtons = [
   {

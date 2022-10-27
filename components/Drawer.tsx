@@ -1,41 +1,49 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion, useInView } from "framer-motion";
+import { ReactElement, ReactNode, useEffect, useRef } from "react";
 export default function Drawer({
   reveal,
   setReveal,
-  left,
   title,
   text,
+  Icon,
 }: {
   reveal: boolean;
   setReveal: (reveal: boolean) => void;
-  left?: boolean;
   title: string;
-  text: string;
+  text?: string;
+  Icon?: ReactNode;
 }) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const isInView = useInView(ref, { amount: "all" });
+
   return (
     <motion.div
+      ref={ref}
+      initial={{ opacity: 0 }}
       animate={{
-        x: reveal ? (left ? 0 : -0) : left ? "-90%" : "90%",
+        x: isInView ? 0 : -10,
+        opacity: isInView ? 1 : 0,
       }}
-      className="flex even:flex-row-reverse justify-between z-[600] items-center px-4 min-w-96 h-32 m-4 pl-1 lg:w-[30%] bg-lime-500 border-2 border-black whitespace-nowrap overflow-visible"
+      transition={{
+        type: "spring",
+        stiffness: 50,
+        damping: 9,
+        repeatType: "reverse",
+      }}
+      onClick={() => setReveal(reveal ? !reveal : reveal)}
+      className="flex even:flex-row-reverse justify-center items-center z-[600] px-4 h-32 min-w-[400px] m-4 pl-1 cursor-pointer bg-lime-500 border-2 border-black capitalize"
     >
-      <h1 className="text-2xl font-semibold">
-        <span className="cursor-pointer"> {text}</span> <br />
+      <h1 className="text-2xl font-semibold mx-4">
+        {text && (
+          <>
+            <span className="cursor-pointer"> {text}</span> <br />
+          </>
+        )}
         <span className="text-fuchsia-800"> {title}</span>
       </h1>
-      <motion.button
-        className="shrink-0 whitespace-nowrap"
-        layout
-        type="button"
-        onClick={() => setReveal(reveal ? !reveal : reveal)}
-      >
-        {reveal ? (
-          <ChevronLeftIcon className="w-5 cursor-pointer" />
-        ) : (
-          <ChevronRightIcon className="w-5 cursor-pointer" />
-        )}
-      </motion.button>
+      <span>{Icon}</span>
     </motion.div>
   );
 }
