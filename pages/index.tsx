@@ -98,16 +98,16 @@ const Home = () => {
                 className="w-[260px] lg:w-[500px] lg:h-[600px] border-2 border-black p-4 bg-sky-600 lg:m-4"
                 src={projects[x].link || projects[0].link}
               ></iframe>
-              <div className="mx-auto space-x-4 w-fit my-10">
+              <div className="mx-auto space-x-4 w-fit my-10 relative z-50">
                 <button
-                  className="cursor-pointer"
+                  className="cursor-pointer relative z-[500]"
                   disabled={x === 0}
                   onClick={() => setX((x) => x - 1)}
                 >
                   PREVIOUS
                 </button>
                 <button
-                  className="cursor-pointer"
+                  className="cursor-pointer relative z-[500]"
                   disabled={x === projects.length - 1}
                   onClick={() => setX((x) => x + 1)}
                 >

@@ -23,14 +23,14 @@ function Layout({ children, title, description }: Props) {
         <meta name="description" content={description} />
       </Head>
       <Nav />
-      <main>{children}</main>
+      <main className="pb-10">{children}</main>
       <footer
         style={{
           background: `url(/grass.svg)`,
           backgroundSize: "cover",
           backgroundPosition: "0% -0%",
         }}
-        className="fixed z-[150] flex flex-col items-center -bottom-[100px] left-0 right-0 h-[300px] overflow-visible"
+        className="fixed z-0 flex flex-col items-center -bottom-[100px] left-0 right-0 h-[300px] overflow-visible"
       ></footer>
     </div>
   );
