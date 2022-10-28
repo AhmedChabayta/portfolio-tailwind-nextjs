@@ -10,36 +10,28 @@ type Props = {
   description: string;
 };
 function Layout({ children, title, description }: Props) {
-  const [showFooter, setShowFooter] = useState<boolean>();
   return (
-    <div className="layout">
+    <div className="layout overflow-x-hidden md:w-[70vw] mx-auto">
+      <div className="wallpaper" />
+      <motion.div
+        animate={{ rotate: "1200deg" }}
+        transition={{ duration: 22, repeatType: "reverse" }}
+        className="sun"
+      />
       <Head>
         <title>{title ? title : "Ahmed Chabayta Jr.WebDev"}</title>
         <meta name="description" content={description} />
       </Head>
       <Nav />
       <main>{children}</main>
-      <motion.footer
-        animate={{ y: showFooter ? 0 : "80%" }}
-        className="fixed flex flex-col items-center bottom-0 left-0 right-0 h-[100px] bg-lime-500 border-2 border-black"
-      >
-        <div>
-          <button onClick={() => setShowFooter((o) => !o)}>
-            {showFooter ? (
-              <ChevronDownIcon className="w-5" />
-            ) : (
-              <ChevronUpIcon className="w-5" />
-            )}
-          </button>
-        </div>
-        <motion.div>
-          <motion.p className="font-black">
-            Name: Ahmed Chabayta
-            <br />
-            Skills: Javascript, CSS, Tailwind, ReactJs, NextJs
-          </motion.p>
-        </motion.div>
-      </motion.footer>
+      <footer
+        style={{
+          background: `url(/grass.svg)`,
+          backgroundSize: "cover",
+          backgroundPosition: "0% -0%",
+        }}
+        className="fixed z-[150] flex flex-col items-center -bottom-[100px] left-0 right-0 h-[300px] overflow-visible"
+      ></footer>
     </div>
   );
 }

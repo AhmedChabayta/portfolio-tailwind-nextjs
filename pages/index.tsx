@@ -36,7 +36,7 @@ const Home = () => {
       <div className="flex flex-col">
         <motion.div
           layout
-          className={`flex flex-col items-center justify-between w-screen mt-44 lg:mt-10`}
+          className="flex flex-col lg:flex-row items-center overflow-x-scroll mt-44 lg:mt-10 scrollbar-hide"
         >
           <Drawer
             title={PersonalInfo[0].title}
@@ -46,17 +46,18 @@ const Home = () => {
             setReveal={() => setReveal((o) => !o)}
           />
           <Drawer
-            title={PersonalInfo[0].github}
+            link={PersonalInfo[0].github}
             text={PersonalInfo[0].email}
             reveal={reveal}
             setReveal={() => setReveal((o) => !o)}
           />
-          {PersonalInfo[0].skills.map((skill: any) => (
+          {PersonalInfo[0].skills.map((skill: any, index: number) => (
             <Drawer
               key={skill.name}
               title={skill.name}
               Icon={skill.icon}
               reveal={reveal}
+              index={index}
               setReveal={() => setReveal((o) => !o)}
             />
           ))}
@@ -76,7 +77,7 @@ const Home = () => {
               </button>
             ))}
           </div>
-          <div className="relative flex flex-col space-y-10 my-20 lg:space-y-0 lg:gap-8 lg:flex-row lg:flex-wrap items-center justify-center mx-auto bg-lime-500 border-2 border-black p-10">
+          <div className="relative flex flex-col space-y-10 my-20 lg:space-y-0 lg:gap-8 lg:flex-row lg:flex-wrap items-center justify-center mx-auto bg-sky-300/40 backdrop-blue-3xl  border-2 border-black p-10">
             <div key={projects[x].name || projects[0].name}>
               <Link
                 target="_void"
@@ -91,20 +92,26 @@ const Home = () => {
               <p className="capitalize font-black hidden">
                 {projects[x].languages || projects[0].languages}
               </p>
+              <p className="capitalize">{projects[x].description}</p>
 
               <iframe
-                className="h-[90vh] w-full sm:w-[80vw] md:w-[70vw] lg:w-[80vw] lg:h-[60vh] border-2 border-black p-4 bg-sky-600 lg:m-4"
+                className="w-[260px] lg:w-[500px] lg:h-[600px] border-2 border-black p-4 bg-sky-600 lg:m-4"
                 src={projects[x].link || projects[0].link}
               ></iframe>
               <div className="mx-auto space-x-4 w-fit my-10">
                 <button
+                  className="cursor-pointer"
+                  disabled={x === 0}
+                  onClick={() => setX((x) => x - 1)}
+                >
+                  PREVIOUS
+                </button>
+                <button
+                  className="cursor-pointer"
                   disabled={x === projects.length - 1}
                   onClick={() => setX((x) => x + 1)}
                 >
-                  +
-                </button>
-                <button disabled={x === 0} onClick={() => setX((x) => x - 1)}>
-                  -
+                  NEXT
                 </button>
               </div>
             </div>
